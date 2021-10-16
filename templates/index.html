@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"/>
+    <style>
+        .heading{
+            text-align: center;
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 1.7rem;
+            font-family:'Courier New', Courier, monospace
+        }
+        .cardes{
+            width: 100%;
+            padding:1.9em;
+            margin-bottom: 1em;
+        }.headings{
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family:'Courier New', Courier, monospace
+        }
+       body{
+           background-color: white;
+       }
+    </style>
+    <title> Diary</title>
+   
+</head>
+<body>
+    <div class="cardes" style="background-color:chocolate;">
+        <h1 class="heading">Dear Diary</h1>
+         </div>
+         <section class="section">
+            <div class="container">
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <a href="{% url 'add' %}">Add New</a>
+                    </div>
+                </div>
+            </article>
+            {% for posts in post %}
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <strong>{{posts.date_posted}}</strong>
+                            <br>
+                            {{posts.text}}
+                        </p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+    <div class="cardes" style="background-color:chocolate;">
+        <h1 class="headings">What's on your mind</h1>
+         </div>
+</body>
+</html>
